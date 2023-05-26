@@ -13,6 +13,7 @@ require('dotenv').config()
 const app = express();
 
 
+
 //database connection
 mongoose.connect(process.env.DATABASE) 
 .then(() => console.log("DB CONNECTED SUCCESSFULLY"))
@@ -24,6 +25,9 @@ app.use(morgan("dev"));
 app.use(bodyParser.json({limit:"2mb"}))  //json data is the way our server and client will communicate so we get json data and this will parse json data to javascript object so that can process the data
 //limit:"2mb" --> if your clent is sending the data that is be bigger than 2mb their will bw an errror.(this is completely optional)
 app.use(cors());
+
+
+
 //routes middleware
 //app.use('/api', authRoutes);
 readdirSync("./routes").map((r)=>
